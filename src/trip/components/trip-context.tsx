@@ -1,6 +1,6 @@
 import { Dispatch, ReactNode, SetStateAction, createContext, useState } from 'react'
-import { DateRange } from '../../common/const/common.types'
 import { L_S_TRIPS } from '../../common/const/local-storage-keys.const'
+import { DateRange } from '../../common/types/common.types'
 import { Trip } from '../types/trip.types'
 
 type SelectedTrip = {

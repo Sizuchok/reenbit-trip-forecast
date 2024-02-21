@@ -1,4 +1,4 @@
-import { DateRange } from '../../common/const/common.types'
+import { DateRange } from '../../common/types/common.types'
 
 export type Trip = {
   cityName: string

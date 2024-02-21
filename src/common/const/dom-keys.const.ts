@@ -1,0 +1,1 @@
+export const MODALS_CONTAINER = 'modals-container' as const

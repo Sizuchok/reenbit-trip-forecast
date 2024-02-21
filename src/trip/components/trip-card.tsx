@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { DateRange } from '../../common/const/common.types'
+import { DateRange } from '../../common/types/common.types'
 import { toDdMmYyyy } from '../../common/utils/to-dd-mm-yyyy.util'
 import { TripContext } from './trip-context'
 

@@ -1,6 +1,6 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query'
-import { DateRange } from '../../common/const/common.types'
 import { QUERY } from '../../common/const/react-query-keys'
+import { DateRange } from '../../common/types/common.types'
 import { http } from '../../service'
 
 export const useTripForecast = (city: string | undefined, range: DateRange | undefined) => {
