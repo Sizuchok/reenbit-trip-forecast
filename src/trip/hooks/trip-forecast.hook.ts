@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
 import { DateRange } from '../../common/const/common.types'
 import { QUERY } from '../../common/const/react-query-keys'
 import { http } from '../../service'
@@ -17,5 +17,6 @@ export const useTripForecast = (city: string | undefined, range: DateRange | und
         },
       }),
     enabled: !!(city && range),
+    placeholderData: keepPreviousData,
   })
 }
