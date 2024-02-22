@@ -76,7 +76,7 @@ const AddTripForm = ({ onClose }: Props) => {
             <Label required htmlFor="city" children="City" />
             <Select id="city" {...register('city')}>
               {citiesMock.map(city => (
-                <option className="h-9" value={city.address}>
+                <option className="h-9" value={city.address} key={city.address}>
                   {city.cityName}
                 </option>
               ))}
@@ -95,10 +95,10 @@ const AddTripForm = ({ onClose }: Props) => {
           </div>
         </div>
         <footer className="h-20 flex justify-end items-center px-4 border-t gap-2">
-          <Button type="submit">Save</Button>
           <Button type="button" variant="outline" onClick={handleClose}>
             Cancel
           </Button>
+          <Button type="submit">Save</Button>
         </footer>
       </form>
     </div>

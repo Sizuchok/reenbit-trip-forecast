@@ -14,8 +14,8 @@ const TripCard = ({ trip: { cityName, img, range, address, id } }: Props) => {
   return (
     <div
       className={cn(
-        'min-w-48 w-48 border-2 cursor-pointer border-[#f0f0f0] hover:border-[#b0d8ff]',
-        currentTrip?.id === id ? 'border-[#b0d8ff]' : '',
+        'min-w-48 w-48 border-2 cursor-pointer hover:border-[#b0d8ff]',
+        currentTrip?.id === id ? 'border-[#b0d8ff]' : 'border-[#f0f0f0]',
       )}
       onClick={() => {
         setCurrentTrip({

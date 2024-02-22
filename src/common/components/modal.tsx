@@ -27,10 +27,9 @@ const Modal = ({ open, onClose, children }: Props) => {
   return createPortal(
     <div
       className={cn(
-        'absolute top-0 left-0 size-full justify-center items-center backdrop-blur-sm',
+        'absolute top-0 left-0 size-full justify-center items-center backdrop-blur-sm bg-black bg-opacity-10',
         open ? 'flex' : 'hidden',
       )}
-      onKeyDown={event => console.log(event.key === 'Escape')}
     >
       {children}
     </div>,

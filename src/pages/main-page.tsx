@@ -7,7 +7,7 @@ import TripList from '../trip/components/trip-list/trip-list'
 const MainPage = () => {
   return (
     <MainLayout>
-      <main className="grid grid-cols-[minmax(25rem,_1fr)_minmax(18.75rem,_25rem)] mx-12 gap-12">
+      <main className="grid grid-cols-[minmax(25rem,_1fr)_minmax(18.75rem,_25rem)] mx-12 gap-12 ">
         <div>
           <header>
             <h1 className="mt-4 mb-8 text-2xl font-light">
@@ -16,10 +16,7 @@ const MainPage = () => {
             <SearchBar />
           </header>
           <TripList />
-          <div className="mt-10">
-            <h2 className="text-xl mb-14">Week</h2>
-            <TripForecastList />
-          </div>
+          <TripForecastList />
         </div>
         <TodaysWeather />
       </main>
