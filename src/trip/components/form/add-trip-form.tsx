@@ -54,6 +54,8 @@ const AddTripForm = ({ onClose }: Props) => {
       img: foundCity.img,
     })
 
+    newTrips.sort((a, b) => a.range.from.getTime() - b.range.from.getTime())
+
     localStorage.setItem(L_S_TRIPS, JSON.stringify(newTrips))
 
     setTrips(newTrips)

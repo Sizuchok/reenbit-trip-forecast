@@ -1,4 +1,5 @@
-import { City } from '../types/trip.types'
+import { addDays } from 'date-fns'
+import { City, Trip } from '../types/trip.types'
 
 export const citiesMock: City[] = [
   {
@@ -32,3 +33,20 @@ export const citiesMock: City[] = [
     img: 'https://i.guim.co.uk/img/media/b3585cf7b5525c4f27b924754ed98b3b7fbdaf53/0_383_8048_4831/master/8048.jpg?width=480&dpr=1&s=none',
   },
 ]
+
+export const getPredefinedTrip = () => {
+  const today = new Date()
+
+  const predefinedTrip: Trip = {
+    id: Date.now(),
+    address: 'seoul',
+    cityName: 'Seoul',
+    img: 'https://ocdn.eu/pulscms-transforms/1/ej7k9kpTURBXy82YzI4NzVjMDg1NDhiNzM3OGU4ZjZhYWFiYjExYjFjMC5qcGeTlQMAH80D6M0CMpUCzQSwAMPDkwmmODljMjA2Bt4AAaEwAQ/seul-to-stolica-korei-poludniowej.jpeg',
+    range: {
+      from: addDays(today, 2),
+      to: addDays(today, 6),
+    },
+  }
+
+  return predefinedTrip
+}
