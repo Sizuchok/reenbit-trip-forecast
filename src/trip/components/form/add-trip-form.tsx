@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { IoCloseOutline } from 'react-icons/io5'
+import Button from '../../../common/components/button'
 import Input from '../../../common/components/input'
 import Label from '../../../common/components/label'
 import Select from '../../../common/components/select/select'
@@ -11,7 +12,7 @@ import { citiesMock } from '../../data/cities-mock'
 import { addTripSchema } from '../../schemas/add-trip.schema'
 import { AddTrip, City } from '../../types/trip.types'
 import { TripContext } from '../trip-context'
-import FromErrorMessage from './form-error-message'
+import FormErrorMessage from './form-error-message'
 
 type Props = {
   onClose: () => void
@@ -80,21 +81,24 @@ const AddTripForm = ({ onClose }: Props) => {
                 </option>
               ))}
             </Select>
-            {errors.city && <FromErrorMessage children={errors.city.message} />}
+            {errors.city && <FormErrorMessage children={errors.city.message} />}
           </div>
           <div>
             <Label required htmlFor="start-date" children="Start date" />
             <Input id="start-date" type="date" {...register('startDate')} />
-            {errors.startDate && <FromErrorMessage children={errors.startDate.message} />}
+            {errors.startDate && <FormErrorMessage children={errors.startDate.message} />}
           </div>
           <div>
             <Label required htmlFor="end-date" children="End date" />
             <Input id="end-date" type="date" {...register('endDate')} />
-            {errors.endDate && <FromErrorMessage children={errors.endDate.message} />}
+            {errors.endDate && <FormErrorMessage children={errors.endDate.message} />}
           </div>
         </div>
-        <footer className="h-20 flex justify-end items-center px-4 border-t">
-          <button type="submit">Save</button>
+        <footer className="h-20 flex justify-end items-center px-4 border-t gap-2">
+          <Button type="submit">Save</Button>
+          <Button type="button" variant="outline" onClick={handleClose}>
+            Cancel
+          </Button>
         </footer>
       </form>
     </div>

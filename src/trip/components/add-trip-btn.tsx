@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Modal from '../../common/components/modal'
-import AddTripForm from './forms/add-trip-form'
+import AddTripForm from './form/add-trip-form'
 
 const AddTripBtn = () => {
   const [open, setOpen] = useState<boolean>(false)

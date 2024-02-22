@@ -4,8 +4,8 @@ type Props = {
   children: ReactNode
 }
 
-const FromErrorMessage = ({ children }: Props) => {
+const FormErrorMessage = ({ children }: Props) => {
   return <p className="text-xs mt-1 text-red-600">{children}</p>
 }
 
-export default FromErrorMessage
+export default FormErrorMessage
