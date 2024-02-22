@@ -1,26 +1,28 @@
 import { useContext } from 'react'
-import { DateRange } from '../../common/types/common.types'
+import { cn } from '../../common/utils/class-names.util'
 import { toDdMmYyyy } from '../../common/utils/to-dd-mm-yyyy.util'
+import { Trip } from '../types/trip.types'
 import { TripContext } from './trip-context'
 
 type Props = {
-  range: DateRange
-  cityName: string
-  img: string
-  address: string
+  trip: Trip
 }
 
-const TripCard = ({ cityName, img, range, address }: Props) => {
-  const { setCurrentTrip: setTrip } = useContext(TripContext)
+const TripCard = ({ trip: { cityName, img, range, address, id } }: Props) => {
+  const { currentTrip, setCurrentTrip } = useContext(TripContext)
 
   return (
     <div
-      className="min-w-48 w-48 border-2 cursor-pointer border-[#f0f0f0] hover:border-[#b0d8ff]"
+      className={cn(
+        'min-w-48 w-48 border-2 cursor-pointer border-[#f0f0f0] hover:border-[#b0d8ff]',
+        currentTrip?.id === id ? 'border-[#b0d8ff]' : '',
+      )}
       onClick={() => {
-        setTrip({
+        setCurrentTrip({
           address,
           cityName,
           range,
+          id,
         })
       }}
     >

@@ -1,1 +1,1 @@
-export const cn = (...args: string[]) => args.filter(str => str.length).join(' ')
+export const cn = (...args: (string | undefined)[]) => args.filter(str => str).join(' ')

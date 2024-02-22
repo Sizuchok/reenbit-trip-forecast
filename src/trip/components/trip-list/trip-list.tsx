@@ -19,13 +19,7 @@ const TripList = () => {
         }}
       >
         {trips.map((trip, index) => (
-          <TripCard
-            cityName={trip.cityName}
-            range={trip.range}
-            img={trip.img}
-            address={trip.address}
-            key={index}
-          />
+          <TripCard trip={trip} key={index} />
         ))}
       </div>
       <AddTripBtn />

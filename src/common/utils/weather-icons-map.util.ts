@@ -1,13 +1,22 @@
+import clearDayIcon from '../../assets/weather-icons/clear-day.svg'
+import clearNightIcon from '../../assets/weather-icons/clear-night.svg'
+import cloudyIcon from '../../assets/weather-icons/cloudy.svg'
+import fogIcon from '../../assets/weather-icons/fog.svg'
+import partlyCloudyDayIcon from '../../assets/weather-icons/partly-cloudy-day.svg'
+import partlyCloudyNightIcon from '../../assets/weather-icons/partly-cloudy-night.svg'
+import rainIcon from '../../assets/weather-icons/rain.svg'
+import snowIcon from '../../assets/weather-icons/snow.svg'
+import windIcon from '../../assets/weather-icons/wind.svg'
 import { TWeatherIconsMap } from '../../trip/types/visual-crossing.types'
 
 export const weatherIconsMap: TWeatherIconsMap = {
-  snow: '/src/assets/weather-icons/snow.svg',
-  rain: '/src/assets/weather-icons/rain.svg',
-  fog: '/src/assets/weather-icons/fog.svg',
-  wind: '/src/assets/weather-icons/wind.svg',
-  cloudy: '/src/assets/weather-icons/cloudy.svg',
-  'partly-cloudy-day': '/src/assets/weather-icons/partly-cloudy-day.svg',
-  'partly-cloudy-night': '/src/assets/weather-icons/partly-cloudy-night.svg',
-  'clear-day': '/src/assets/weather-icons/clear-day.svg',
-  'clear-night': '/src/assets/weather-icons/clear-night.svg',
+  snow: snowIcon,
+  rain: rainIcon,
+  fog: fogIcon,
+  wind: windIcon,
+  cloudy: cloudyIcon,
+  'partly-cloudy-day': partlyCloudyDayIcon,
+  'partly-cloudy-night': partlyCloudyNightIcon,
+  'clear-day': clearDayIcon,
+  'clear-night': clearNightIcon,
 } as const

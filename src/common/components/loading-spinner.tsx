@@ -6,6 +6,6 @@ type Props = {
 }
 
 const LoadingSpinner = ({ className }: Props) => {
-  return <TfiReload className={cn('animate-spin', className ?? '')} />
+  return <TfiReload className={cn('animate-spin', className)} />
 }
 export default LoadingSpinner

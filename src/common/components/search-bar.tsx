@@ -24,11 +24,11 @@ const SearchBar = () => {
   }
 
   return (
-    <div className="flex items-center rounded-lg bg-[#F2F4F8] p-3 min-w-48 max-w-64">
-      <IoSearch className="size-5" />
+    <div className="flex items-center rounded-lg bg-[#F2F4F8] min-w-48 max-w-64">
+      <IoSearch className="size-5 ml-3" />
       <input
         type="text"
-        className="text-xs bg-inherit focus:outline-none pl-2 size-full"
+        className="text-xs bg-inherit focus:outline-none py-3 pl-2 pr-3"
         placeholder="Search your trip"
         onChange={handleChange}
       />

@@ -3,11 +3,7 @@ import { L_S_TRIPS } from '../../common/const/local-storage-keys.const'
 import { DateRange } from '../../common/types/common.types'
 import { Trip } from '../types/trip.types'
 
-type SelectedTrip = {
-  address: string
-  cityName: string
-  range: DateRange
-}
+type SelectedTrip = Omit<Trip, 'img'>
 
 type TripContext = {
   currentTrip: SelectedTrip | undefined

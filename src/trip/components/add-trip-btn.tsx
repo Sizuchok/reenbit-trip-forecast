@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Modal from '../../common/components/modal'
+import AddTripForm from './forms/add-trip-form'
 
 const AddTripBtn = () => {
   const [open, setOpen] = useState<boolean>(false)
@@ -15,7 +16,7 @@ const AddTripBtn = () => {
         Add trip
       </button>
       <Modal open={open} onClose={() => setOpen(false)}>
-        Form
+        <AddTripForm onClose={() => setOpen(false)} />
       </Modal>
     </>
   )
