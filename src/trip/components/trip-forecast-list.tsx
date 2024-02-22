@@ -1,5 +1,6 @@
 import { addDays } from 'date-fns'
-import { ElementRef, useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
+import Scrollable from '../../common/components/scrollable'
 import { DateRange } from '../../common/types/common.types'
 import { useTripForecast } from '../hooks/trip-forecast.hook'
 import { OptionalVcDay } from '../types/visual-crossing.types'
@@ -26,8 +27,6 @@ const TripForecastList = () => {
     currentTrip?.cityName ?? myLocation,
     currentTrip?.range ?? range,
   )
-
-  const ref = useRef<ElementRef<'div'>>(null)
 
   const dummy = new Array(7).fill('').map(
     (_, index) =>
@@ -57,18 +56,13 @@ const TripForecastList = () => {
           ? 'Forecast for the week from today'
           : `Forecast for the selected trip`}
       </h2>
-      <div
-        ref={ref}
-        className="flex space-x-8 max-w-full overflow-x-auto"
-        onWheel={event => {
-          if (!ref.current) return
-          ref.current.scrollLeft += event.deltaY / 4
-        }}
-      >
-        {days.map(forecast => (
-          <TripForecastCard forecast={forecast} key={forecast.datetime} isFetching={isFetching} />
-        ))}
-      </div>
+      <Scrollable>
+        <div className="flex space-x-8">
+          {days.map(forecast => (
+            <TripForecastCard forecast={forecast} key={forecast.datetime} isFetching={isFetching} />
+          ))}
+        </div>
+      </Scrollable>
     </div>
   )
 }

@@ -1,29 +1,26 @@
-import { ElementRef, useContext, useRef } from 'react'
-import { cn } from '../../../common/utils/class-names.util'
+import { useContext } from 'react'
+import Scrollable from '../../../common/components/scrollable'
 import AddTripBtn from '../add-trip-btn'
 import TripCard from '../trip-card'
 import { TripContext } from '../trip-context'
 
 const TripList = () => {
   const { trips } = useContext(TripContext)
-  const ref = useRef<ElementRef<'div'>>(null)
 
   return (
-    <div className={cn('flex mt-12', trips.length ? 'gap-12' : '')}>
-      <div
-        ref={ref}
-        className="flex gap-12 max-w-full overflow-x-auto"
-        onWheel={event => {
-          if (!ref.current) return
-          ref.current.scrollLeft += event.deltaY / 4
-        }}
-      >
-        {trips.map((trip, index) => (
-          <TripCard trip={trip} key={index} />
-        ))}
+    <div className="flex mt-12">
+      <div className="grid grid-cols-[minmax(0,_1fr)_12rem] space-x-4">
+        <Scrollable withArrows>
+          <div className="flex gap-12">
+            {trips.map(trip => (
+              <TripCard trip={trip} key={trip.id} />
+            ))}
+          </div>
+        </Scrollable>
+        <AddTripBtn />
       </div>
-      <AddTripBtn />
     </div>
   )
 }
+
 export default TripList

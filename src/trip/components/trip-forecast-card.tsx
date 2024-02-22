@@ -17,6 +17,7 @@ const TripForecastCard = ({ forecast, isFetching }: Props) => {
       <img
         src={weatherIconsMap[forecast.icon]}
         alt={forecast.icon}
+        // not bug, but feature
         className={cn('size-14', isFetching ? 'animate-spin' : '')}
       />
       <div className="whitespace-nowrap text-xs">
