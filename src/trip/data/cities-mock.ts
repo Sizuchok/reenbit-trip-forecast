@@ -1,36 +1,42 @@
 import { addDays } from 'date-fns'
+import kyiv from '../../assets/city-images/kyiv.jpg'
+import madrid from '../../assets/city-images/madrid.jpg'
+import newYork from '../../assets/city-images/new-york.avif'
+import oslo from '../../assets/city-images/oslo.jpg'
+import paris from '../../assets/city-images/paris.jpg'
+import seoul from '../../assets/city-images/seoul.jpeg'
 import { City, Trip } from '../types/trip.types'
 
 export const citiesMock: City[] = [
   {
-    cityName: 'Barcelona',
-    address: 'barcelona',
-    img: 'https://a.cdn-hotels.com/gdcs/production81/d1983/1441d9b5-d0e6-4230-9923-646d58ba66d8.jpg',
+    cityName: 'Madrid',
+    address: 'madrid',
+    img: madrid,
   },
   {
     cityName: 'Kyiv',
     address: 'kyiv',
-    img: 'https://www.nta.ua/wp-content/uploads/2022/04/kyyiv-1.jpg',
+    img: kyiv,
   },
   {
     cityName: 'Paris',
     address: 'paris',
-    img: 'https://www.voyagesdereve.ch/upload/images/xParis-Tour-Eiffel.jpg.pagespeed.ic.2trsrFlXuR.jpg',
+    img: paris,
   },
   {
     cityName: 'Seoul',
     address: 'seoul',
-    img: 'https://ocdn.eu/pulscms-transforms/1/ej7k9kpTURBXy82YzI4NzVjMDg1NDhiNzM3OGU4ZjZhYWFiYjExYjFjMC5qcGeTlQMAH80D6M0CMpUCzQSwAMPDkwmmODljMjA2Bt4AAaEwAQ/seul-to-stolica-korei-poludniowej.jpeg',
+    img: seoul,
   },
   {
     cityName: 'Oslo',
     address: 'oslo',
-    img: 'https://loveyouplanet.com/wp-content/uploads/2019/04/oslo_18.jpg',
+    img: oslo,
   },
   {
     cityName: 'New York',
     address: 'new york',
-    img: 'https://i.guim.co.uk/img/media/b3585cf7b5525c4f27b924754ed98b3b7fbdaf53/0_383_8048_4831/master/8048.jpg?width=480&dpr=1&s=none',
+    img: newYork,
   },
 ]
 
@@ -41,7 +47,7 @@ export const getPredefinedTrip = () => {
     id: Date.now(),
     address: 'seoul',
     cityName: 'Seoul',
-    img: 'https://ocdn.eu/pulscms-transforms/1/ej7k9kpTURBXy82YzI4NzVjMDg1NDhiNzM3OGU4ZjZhYWFiYjExYjFjMC5qcGeTlQMAH80D6M0CMpUCzQSwAMPDkwmmODljMjA2Bt4AAaEwAQ/seul-to-stolica-korei-poludniowej.jpeg',
+    img: seoul,
     range: {
       from: addDays(today, 2),
       to: addDays(today, 6),
