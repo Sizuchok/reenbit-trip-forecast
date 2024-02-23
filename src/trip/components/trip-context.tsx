@@ -1,4 +1,13 @@
-import { Dispatch, ReactNode, SetStateAction, createContext, useState } from 'react'
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
+import { AuthContext } from '../../auth/components/auth-context'
 import { L_S_TRIPS } from '../../common/const/local-storage-keys.const'
 import { DateRange } from '../../common/types/common.types'
 import { getPredefinedTrip } from '../data/cities-mock'
@@ -29,13 +38,19 @@ const retriever = (key: string, value: DateRange) =>
 
 const TripProvider = ({ children }: Props) => {
   const [currentTrip, setCurrentTrip] = useState<SelectedTrip | undefined>()
+  const { user } = useContext(AuthContext)
 
-  const localTripsStr = localStorage.getItem(L_S_TRIPS)
+  const localTripsStr = localStorage.getItem(`${L_S_TRIPS}-${user?.id}`)
+
   const localTrips = localTripsStr
     ? (JSON.parse(localTripsStr, retriever) as Trip[])
     : [getPredefinedTrip()]
 
   const [trips, setTrips] = useState<Trip[]>(localTrips)
+
+  useEffect(() => {
+    setTrips(localTrips)
+  }, [user])
 
   return (
     <TripContext.Provider value={{ currentTrip, setCurrentTrip, trips, setTrips }}>

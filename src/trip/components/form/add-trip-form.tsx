@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { IoCloseOutline } from 'react-icons/io5'
+import { AuthContext } from '../../../auth/components/auth-context'
 import Button from '../../../common/components/button'
 import Input from '../../../common/components/input'
 import Label from '../../../common/components/label'
@@ -19,6 +20,8 @@ type Props = {
 }
 
 const AddTripForm = ({ onClose }: Props) => {
+  const { user } = useContext(AuthContext)
+
   const {
     reset,
     register,
@@ -56,7 +59,7 @@ const AddTripForm = ({ onClose }: Props) => {
 
     newTrips.sort((a, b) => a.range.from.getTime() - b.range.from.getTime())
 
-    localStorage.setItem(L_S_TRIPS, JSON.stringify(newTrips))
+    localStorage.setItem(`${L_S_TRIPS}-${user?.id}`, JSON.stringify(newTrips))
 
     setTrips(newTrips)
 
@@ -78,7 +81,7 @@ const AddTripForm = ({ onClose }: Props) => {
             <Label required htmlFor="city" children="City" />
             <Select id="city" {...register('city')}>
               {citiesMock.map(city => (
-                <option className="h-9" value={city.address} key={city.address}>
+                <option value={city.address} key={city.address}>
                   {city.cityName}
                 </option>
               ))}
