@@ -11,28 +11,33 @@ const SignInPage = () => {
 
   return (
     <div className="w-screen h-screen flex">
-      <div className="max-w-96 m-auto">
-        <GoogleLogin
-          onSuccess={async ({ credential }) => {
-            if (!credential) return
+      <div className="flex flex-col items-center max-w-96 m-auto border rounded-md p-4">
+        <h1 className="text-center text-xl font-semibold">Welcome to Trip Forecast</h1>
+        <p className="text-sm text-[#939393] mt-4">You can login using your google account</p>
+        <div className="mt-8 mb-4">
+          <GoogleLogin
+            onSuccess={async ({ credential }) => {
+              if (!credential) return
 
-            const some = window.atob(credential.split('.')[1])
-            const { name, given_name, family_name, email, picture, sub }: IdToken = JSON.parse(some)
+              const payload = window.atob(credential.split('.')[1])
+              const { name, given_name, family_name, email, picture, sub }: IdToken =
+                JSON.parse(payload)
 
-            const user: User = {
-              id: sub,
-              email,
-              name,
-              given_name,
-              family_name,
-              picture,
-            }
+              const user: User = {
+                id: sub,
+                email,
+                name,
+                given_name,
+                family_name,
+                picture,
+              }
 
-            setUser(user)
+              setUser(user)
 
-            navigate(`/${ROUTER.DASHBOARD.INDEX}`)
-          }}
-        />
+              navigate(`/${ROUTER.DASHBOARD.INDEX}`)
+            }}
+          />
+        </div>
       </div>
     </div>
   )
