@@ -6,6 +6,6 @@ import { ROUTER } from '../../common/const/router-keys.const'
 const PublicRoute = () => {
   const { user } = useContext(AuthContext)
 
-  return user ? <Navigate to={`/${ROUTER.DASHBOARD}`} replace /> : <Outlet />
+  return user ? <Navigate to={`/${ROUTER.DASHBOARD.INDEX}`} replace /> : <Outlet />
 }
 export default PublicRoute

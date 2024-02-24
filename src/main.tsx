@@ -4,6 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import AuthProvider from './auth/components/auth-context'
+import AuthWrapper from './auth/components/auth-wrapper'
 import { GOOGLE_CLIENT_ID } from './common/const/env.const'
 import './index.css'
 import { router } from './pages/router'
@@ -17,7 +18,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <TripProvider>
-            <RouterProvider router={router} />
+            <AuthWrapper>
+              <RouterProvider router={router} />
+            </AuthWrapper>
           </TripProvider>
         </AuthProvider>
       </QueryClientProvider>

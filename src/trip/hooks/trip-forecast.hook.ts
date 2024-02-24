@@ -1,5 +1,5 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query'
-import { QUERY } from '../../common/const/react-query-keys'
+import { QUERY } from '../../common/const/react-query-keys.const'
 import { DateRange } from '../../common/types/common.types'
 import { http } from '../../service'
 

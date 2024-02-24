@@ -1,18 +1,18 @@
-import { AxiosRequestConfig } from 'axios'
+import { AxiosInstance, AxiosRequestConfig } from 'axios'
 import { apiClient } from './util/api-client'
 
 export class HttpService<TResponse = unknown> {
-  constructor(private endpoint: string) {
+  constructor(private apiClient: AxiosInstance, private endpoint: string) {
     this.endpoint = endpoint
   }
 
   async getAll<OwnResponse = TResponse[]>(params: string, config: AxiosRequestConfig<never>) {
-    const response = await apiClient.get<OwnResponse>(`${this.endpoint}/${params}`, config)
+    const response = await this.apiClient.get<OwnResponse>(`${this.endpoint}/${params}`, config)
     return response.data
   }
 
   async get<OwnResponse = TResponse>(params: string | number, config?: AxiosRequestConfig<never>) {
-    const response = await apiClient.get<OwnResponse>(`${this.endpoint}/${params}`, config)
+    const response = await this.apiClient.get<OwnResponse>(`${this.endpoint}/${params}`, config)
     return response.data
   }
 

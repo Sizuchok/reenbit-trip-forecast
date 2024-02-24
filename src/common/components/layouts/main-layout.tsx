@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { IoMdLogOut } from 'react-icons/io'
 import { Outlet } from 'react-router-dom'
 import { AuthContext } from '../../../auth/components/auth-context'
+import { ACCESS_TOKEN } from '../../const/local-storage-keys.const'
 
 const MainLayout = () => {
   const { user, setUser } = useContext(AuthContext)
@@ -20,7 +21,10 @@ const MainLayout = () => {
           </div>
           <IoMdLogOut
             className="my-auto size-10 cursor-pointer fill-[#110E3B] hover:fill-[#3B3B3B]"
-            onClick={() => setUser(undefined)}
+            onClick={() => {
+              localStorage.removeItem(ACCESS_TOKEN)
+              setUser(undefined)
+            }}
           />
         </div>
       </header>
