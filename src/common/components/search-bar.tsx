@@ -1,26 +1,32 @@
-import { ChangeEvent, useContext, useState } from 'react'
+import { ChangeEvent, useContext, useEffect, useRef } from 'react'
 import { IoSearch } from 'react-icons/io5'
 import { TripContext } from '../../trip/components/trip-context'
 
 const SearchBar = () => {
   const { trips, setTrips } = useContext(TripContext)
-  const [originalTrips] = useState(trips)
+  const originalTrips = useRef(trips)
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target
 
     if (!value) {
-      return setTrips(originalTrips)
+      return setTrips(originalTrips.current)
     }
 
     setTrips(
-      originalTrips.filter(trip => {
+      originalTrips.current.filter(trip => {
         const input = value.toLocaleLowerCase()
         const city = trip.cityName.toLocaleLowerCase()
         return city.includes(input)
       }),
     )
   }
+
+  useEffect(() => {
+    if (trips.length > originalTrips.current.length) {
+      originalTrips.current = trips
+    }
+  }, [trips])
 
   return (
     <div className="flex items-center rounded-lg bg-[#F2F4F8] min-w-48 max-w-64">
